@@ -64,4 +64,14 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+    public void click2(View v)
+    {
+        pb.setVisibility(View.VISIBLE);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        pb.setVisibility(View.INVISIBLE);
+    }
 }
