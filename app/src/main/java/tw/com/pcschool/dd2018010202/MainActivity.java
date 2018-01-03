@@ -67,11 +67,24 @@ public class MainActivity extends AppCompatActivity {
     public void click2(View v)
     {
         pb.setVisibility(View.VISIBLE);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        pb.setVisibility(View.INVISIBLE);
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        pb.setVisibility(View.INVISIBLE);
+                    }
+                });
+
+            }
+        }.start();
+
     }
 }
