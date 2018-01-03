@@ -5,16 +5,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ProgressBar;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     CheckBox chk1;
+    Switch sw;
+    ProgressBar pb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         chk1 = (CheckBox) findViewById(R.id.checkBox);
+        sw = (Switch) findViewById(R.id.switch1);
+        pb = (ProgressBar) findViewById(R.id.progressBar);
         chk1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -25,6 +31,19 @@ public class MainActivity extends AppCompatActivity {
                 else
                 {
                     Toast.makeText(MainActivity.this, "取消了", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b)
+                {
+                    pb.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    pb.setVisibility(View.INVISIBLE);
                 }
             }
         });
