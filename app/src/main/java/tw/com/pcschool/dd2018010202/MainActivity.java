@@ -2,8 +2,10 @@ package tw.com.pcschool.dd2018010202;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,5 +28,21 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    public void click1(View v)
+    {
+        RadioGroup rg = (RadioGroup) findViewById(R.id.radioGroup);
+        switch(rg.getCheckedRadioButtonId())
+        {
+            case R.id.radioButton:
+                Toast.makeText(MainActivity.this, "第一個按鈕", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.radioButton2:
+                Toast.makeText(MainActivity.this, "第二個按鈕", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.radioButton3:
+                Toast.makeText(MainActivity.this, "第三個按鈕", Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 }
